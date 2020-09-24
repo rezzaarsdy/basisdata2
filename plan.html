@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Basis Data II</title>
+	<!-- CSS only -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+	<!-- JS, Popper.js, and jQuery -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</head>
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+
+	<div class="container">
+		 <header class="site-navbar js-sticky-header site-navbar-target" role="banner">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	  <a class="navbar-brand" >Reza</a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+	  </button>
+
+	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	    <ul class="navbar-nav mr-auto">
+	      <li class="nav-item active">
+	        <a class="nav-link" href="index.html">Basis Data II <span class="sr-only">(current)</span></a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link" href="query.html">Query</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link" href="plan.html">Evaluation Plan</a>
+	      </li>
+   	      <li class="nav-item">
+	        <a class="nav-link" href="about.html">About</a>
+	      </li>
+	    </ul>
+	    <form class="form-inline my-2 my-lg-0">
+	      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+	      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+	    </form>
+	  </div>
+	</nav>
+</header>
+	<div class="jumbotron">
+	 	<h1 class="row align-items-center justify-content-center text-center " data-aos="fade-up" data-aos-delay="">EVALUATION PLAN</h1> 
+	</div>
+	<div class="d-flex flex-row">
+	<div class="col-lg-6 mt-lg-0 box-material" data-aos="fade-left" data-aos-delay="">
+                  <h2 class="mb-3 text-primary">PROSES QUERY</h2>
+                  <p><span class="text-primary">Sebenarnya,</span> pembahasan “proses query” ini saya maksudkan agar kita semua tahu seluk buluk dari evaluation plan itu sendiri, terdapat di tahapan proses query yang mana sih evaluation plan ini? dan guna dari evaluation plan ini apa sih?
+Jadi, cara kerja dari sebuah query ialah melalui beberapa proses. Proses -proses tersebut diantaranya :
+<ol>
+<li>Parsing — merupakan proses pertama, dimana ia memeriksa sintaks query yang ditulis. jadi jika terjadi kesalahan di sintaks, proses selanjutnya otomatis tidak akan dilakukan dan mendapatkan peringatan dari DBMS</li>
+
+<li>Translasi — selanjutnya, apabila query sudah benar secara sintaks, maka query tersebut akan ditranslasi menjadi aljabar relational. Hal ini musti dilakukan sebab sintaks SQL adalah bahasa pemrograman tingkat tinggi sehingga perlu dirubah ke bahasa yang dimengerti oleh mesin.</li>
+<li>Optimasi — proses ini sangat panjang untuk dapat dijabarkan secara luas. simplenya… satu buah query yang sama bisa dibuat lebih dari satu aljabar relational yang berbeda. Maka dari itu, DBMS akan memilih yang mana yang akan dieksekusi. Nah. satu ekspresi aljabar relational yang terbentuk tersebut disebut dengan istilah evaluation plan (EP). EP ini akan dihitung costnya. Cost ini diperoleh dari informasi statistik yang ada di database catalog. Ada banyak parameter biaya yang diperhitungkan. Misalnya banyaknya baris maupun blok di suatu relasi. Proses ini sangat penting jika jumlah baris query-nya sudah memasuki angka jutaan.</li>
+<li>Eksekusi — setelah evaluation plan, akan dilakukan eksekusi dan pengambilan data yang diperlukan dari database, nanti hasilnya pun akan ditampilkan di monitor</li>
+</ol>
+Sebagian besar sistem database menyediakan jalan untuk menampilkan evaluation plan yang dipilih untuk menjalankan query tertentu. Biasanya paling bagus menggunakan GUI yang disediakan dengan sistem database untuk menampilkan evaluation plan. Lagi pula, jika kita menggunakan command line interface, beberapa database akan menerima berbagai perintah “explain query”, dimana menampilkan eksekusi plan terpilih untuk query tertentu. Adapun sintaks yang sebenarnya bervariasi, tergantung dari sistem database yang digunakan.
+ </p>
+</div>
+<div class="col-lg-6 mt-lg-0 box-material" data-aos="fade-left" data-aos-delay="">
+                  <h2 class="mb-3 text-primary">SISTEM BASIS DATA</h2>
+                  <p><span class="text-primary">Sistem Basis Data</span>  
+                  	<ol>
+                  		<li>MySQL menggunakan sintaks explain query yang sama seperti PostgreSQL. Tetapi, outputnya adalah tabel yang isinya tidak mudah dipahami. Bagaimanapun, eksekusi show warning setelah perintah explain tersebut menampilkan evaluation plan dengan format yang lebih mudah dipahami dan dibaca.</li>
+                  		<li>PostgreSQL menjelaskan query, yang ditampilkan rencana eksekusi yang dipilih untuk kueri yang ditentukan query </li>
+                  		<li>SQL Server memerlukan perintah set show_plan text on untuk dieksekusi sebelum mengirimkan query. Lalu, saat query telah terkirim, bukannya query dieksekusi, evaluation plan yang ditampilkan.</li>
+                  		<li>Oracle system menggunakan sintaks explain plan for. Namun, perintah tersebut malah menyimpan rencana yang dihasilkan ke dalam tabel yang disebut plan_table. Bukannya menampilkan, query “select * from table(dbms_xplain.display);” menampilkan rencana yang disimpan. </li>
+                  	</ol>
+                   </p>
+</div>
+</div>
+<p><span class="text-primary">Contoh Penggunaan Sistem Basis Data (MySQL)</span>  </p>
+<img src="contoh mysql.png" class="img-thumbnail">
+
+            <footer class="footers">
+      <div class="container">
+        <div class="row  text-center">
+          <div class="col-md-12">
+              <p class="copyright"><small>
+                &copy; Copyright by <a href="" target="_blank" >Reza Arisandy Safruddin <script>document.write(new Date().getFullYear());</script></a>
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+              </small></p>
+            </div>
+          </div>
+        </div>
+    </footer>
+</body>
+</html>
+
+
+
+<!-- Mohon maaf pak. tugas kurang maksimal, karena leptop habis dicuri pak. -->
