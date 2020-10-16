@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Basis Data II</title>
+	<!-- CSS only -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+	<!-- JS, Popper.js, and jQuery -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</head>
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+
+	<div class="container">
+		 <header class="site-navbar js-sticky-header site-navbar-target" role="banner">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	  <a class="navbar-brand" >Reza</a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+	  </button>
+
+	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	    <ul class="navbar-nav mr-auto">
+	      <li class="nav-item active">
+	        <a class="nav-link" href="index.html">Basis Data II <span class="sr-only">(current)</span></a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link" href="query.html">Query</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link" href="plan.html">Evaluation Plan</a>
+	      </li>
+	       <li class="nav-item">
+	        <a class="nav-link" href="design.html">Design Database</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link" href="trans.html">Transaction</a>
+	      </li>
+   	      <li class="nav-item">
+	        <a class="nav-link" href="about.html">About</a>
+	      </li>
+	    </ul>
+	    <form class="form-inline my-2 my-lg-0">
+	      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+	      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+	    </form>
+	  </div>
+	</nav>
+</header>
+	<div class="jumbotron">
+	 	<h1 class="row align-items-center justify-content-center text-center " data-aos="fade-up" data-aos-delay="">QUERY</h1>
+	 	<br>
+	 	<p>Bahasa Query adalah suatu bahasa komputer yang digunakan untuk melakukan permintaan terhadap basis data dan sistem informasi. Jenis-jenis bahasa ini antara lain: SQL; bahasa Query yang terkenal untuk basis data relasional MDX; bahasa Query untuk basis data OLAP DMX; bahasa Query untuk model penggalian data - <a href="https://id.wikipedia.org/wiki/Bahasa_kueri">Wikipedia</a> </p>
+	</div>
+<div class="d-flex flex-row">
+	
+	<div class="col-lg-6 mt-lg-0 box-material" data-aos="fade-left" data-aos-delay="">
+                  <h2 class="mb-3 text-primary">Mengukur Biaya Query</h2>
+                  <p><span class="text-primary">Query</span>  Ada beberapa kemungkinan rencana evaluasi untuk kueri, dan itu penting untuk bisa untuk membandingkan alternatif dalam hal biaya (perkiraan) mereka, dan memilih rencana terbaik. Untuk melakukannya, kita harus memperkirakan biaya operasi individu dan menggabungkannya untuk mendapatkannya biaya rencana evaluasi kueri. Jadi, saat kita mempelajari algoritma evaluasi untuk masing-masing operasi, kita juga menguraikan bagaimana memperkirakan biaya operasi.
+
+Biaya evaluasi query dapat diukur dari banyaknya sumber daya (resource) sistem yang digunakan. Sumber daya yang dimaksud meliputi pengaksesan disk, waktu CPU mengerjakan query, dan untuk sistem basis data paralel atau terdistribusi. Adapun pada sistem basis data yang besar, dapat pula memberikan kontribusi biaya query yang dominan
+
+Optimizer query akan membuat informasi statistik yang tersimpan dalam katalog DBMS untuk memperkirakan besarnya biaya dari sebuah rencana query. Adapun informasi yang tersimpan tersebut meliputi :
+<ul type="disc">
+	<li>Banyaknya baris data (record) dalam sebuah tabel</li>
+	<li>Banyaknya blok baris berisi baris data dalam tabel</li>
+	<li>Ukuran setiap baris data dari tabel (satuan byte), dan</li>
+	<li>Banyaknya nilai unik dalam tabel untuk suatu atribut.</li>
+</ul></p>
+</div>
+
+<div class="col-lg-6 mt-lg-0 box-material" data-aos="fade-left" data-aos-delay="">
+                  <h2 class="mb-3 text-primary">Evaluasi Ekspresi oleh DBMS</h2>
+                  <p><span class="text-primary">Query,</span>  Untuk mengevaluasi ekspresi yang membawa banyak operasi di dalamnya, kita dapat melakukan komputasi setiap operasi satu per satu. Namun, dalam sistem pemrosesan kueri, kami menggunakan dua metode untuk mengevaluasi ekspresi yang membawa banyak operasi. Metode tersebut adalah:
+<ul>
+	<li>1. Materialization
+Dalam metode ini, ekspresi yang diberikan mengevaluasi satu operasi relasional dalam satu waktu. Selain itu, setiap operasi dievaluasi dalam urutan atau urutan yang sesuai. Setelah mengevaluasi semua operasi, keluarannya diwujudkan dalam hubungan sementara untuk penggunaan selanjutnya. Ini membawa metode materialisasi pada kerugian. Kerugiannya adalah bahwa ia perlu membangun hubungan sementara tersebut untuk mewujudkan hasil operasi yang dievaluasi, masing-masing. Hubungan sementara ini ditulis pada disk kecuali ukurannya kecil.</li>
+
+<li>2. Pipelining
+Pipelining adalah metode alternatif atau pendekatan untuk metode materialisasi. Dalam pipelining, ini memungkinkan kita untuk mengevaluasi setiap operasi relasional ekspresi secara bersamaan dalam pipeline. Dalam pendekatan ini, setelah mengevaluasi satu operasi, keluarannya diteruskan ke operasi berikutnya, dan rantai berlanjut hingga semua operasi relasional dievaluasi secara menyeluruh. Jadi, tidak ada persyaratan untuk menyimpan hubungan sementara dalam pemipaan. Keuntungan pipelining seperti itu membuatnya menjadi pendekatan yang lebih baik dibandingkan dengan pendekatan yang digunakan dalam metode materialisasi. Bahkan biaya dari kedua pendekatan tersebut dapat memiliki perbedaan selanjutnya di antara keduanya. Namun, kedua pendekatan tersebut menjalankan peran terbaik dalam kasus yang berbeda. Dengan demikian, kedua cara tersebut layak di tempatnya. </li>
+</ul>
+</p>
+            </div>
+
+
+    </div>
+
+
+            <footer class="footers">
+      <div class="container">
+        <div class="row  text-center">
+          <div class="col-md-12">
+              <p class="copyright"><small>
+                &copy; Copyright by <a href="" target="_blank" >Reza Arisandy Safruddin <script>document.write(new Date().getFullYear());</script></a>
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+              </small></p>
+            </div>
+          </div>
+        </div>
+    </footer>
+</body>
+</html>
+
+
+
+
+<!-- Mohon maaf pak. tugas kurang maksimal, karena leptop habis dicuri pak. -->
